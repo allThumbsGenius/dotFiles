@@ -37,6 +37,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
+Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
@@ -109,3 +110,5 @@ colorscheme jellybeans
 " Compile key : Compile and if success execute
 " C++ compile + execute
 autocmd FileType cpp nnoremap <buffer> <f9> :w<CR>:!g++ -o %< % && ./%<<CR>
+" C compile + execute
+autocmd FileType c nnoremap <buffer> <f9> :w<CR>:!gcc -o %< % && ./%<<CR>
