@@ -91,6 +91,10 @@ nmap <F3> :NERDTreeToggle<CR>
 " Tagbar
 nmap <F4> :Tagbar<CR>
 
+" to make easy to explor buffer 
+nmap <F7> :bp<CR>
+nmap <F8> :bn<CR>
+
 " diminactive
 let g:diminactive_enable_focur = 1
 
@@ -112,3 +116,5 @@ colorscheme jellybeans
 autocmd FileType cpp nnoremap <buffer> <f9> :w<CR>:!g++ -o %< % && ./%<<CR>
 " C compile + execute
 autocmd FileType c nnoremap <buffer> <f9> :w<CR>:!gcc -o %< % && ./%<<CR>
+" Rust compile + excute
+autocmd FileType rust nnoremap <buffer> <f9> :w<CR>:!rustc % && ./%<<CR>
