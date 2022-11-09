@@ -38,6 +38,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
@@ -84,6 +85,9 @@ set cursorline
 set visualbell
 
 set hlsearch
+
+" coc_disable_startup_warning
+let g:coc_disable_startup_warning = 1
 
 " NerdTree
 nmap <F3> :NERDTreeToggle<CR>
