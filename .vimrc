@@ -39,7 +39,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-" Plugin 'valloric/youcompleteme'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,9 +84,31 @@ set cursorline
 set visualbell
 
 set hlsearch
+"
+" Some servers have isuues with backup files, see #649
+set nobackup
+set nowritebackup
 
-" coc_disable_startup_warning
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (defalut is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass massages to |ins-completion-menu|.
+" shortmess+=c only affects autocompletion
+set shortmess+=c
+
+" COC
+" coc_disable_startup_warning like 'use vimversion >= 8.2 blabla~~'
 let g:coc_disable_startup_warning = 1
+
+" make <Backspace> key delete delemeter and throw out that was been making
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
 
 " NerdTree
 nmap <F3> :NERDTreeToggle<CR>
@@ -109,9 +130,6 @@ let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-
-" ycm setup
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
 
 colorscheme jellybeans
 
