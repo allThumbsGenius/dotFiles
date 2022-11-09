@@ -101,6 +101,11 @@ set updatetime=300
 set shortmess+=c
 
 " COC
+" References for COC
+" https://github.com/neoclide/coc.nvim
+" https://onurmark.tistory.com/m/12
+" https://github.com/neoclide/coc.nvim/issues/3258
+" https://velog.io/@mythos/Linux-neovim-%EC%84%A4%EC%A0%95-CoC-Vim-Plug-treesitter-NERDTree
 " coc_disable_startup_warning like 'use vimversion >= 8.2 blabla~~'
 let g:coc_disable_startup_warning = 1
 
