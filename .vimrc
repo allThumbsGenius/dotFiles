@@ -101,19 +101,42 @@ set updatetime=300
 set shortmess+=c
 
 " COC
+"
 " References for COC
 " https://github.com/neoclide/coc.nvim
 " https://onurmark.tistory.com/m/12
 " https://github.com/neoclide/coc.nvim/issues/3258
 " https://velog.io/@mythos/Linux-neovim-%EC%84%A4%EC%A0%95-CoC-Vim-Plug-treesitter-NERDTree
+" if yarn install dose not work, you can just npm install instead
+"
 " coc_disable_startup_warning like 'use vimversion >= 8.2 blabla~~'
 let g:coc_disable_startup_warning = 1
+" using ctrl+n to auto completion
+inoremap <expr> <TAB>
+		\ coc#pum#visible() ? coc#pum#next(1) :
+		\ CheckBackSpace() ? "\<TAB>" :
+		\ coc#refresh()
+
+inoremap <expr> <S-TAB>
+		\ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to formats
+" <C-g>u breaks current undo, please make your own chice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#comfirm()
+							\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " make <Backspace> key delete delemeter and throw out that was been making
-function! s:check_back_space() abort
+function! CheckBackSpace() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+	inoremap <silent><expr> <c-space> coc#refresh()
+else
+	inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " NerdTree
 nmap <F3> :NERDTreeToggle<CR>
