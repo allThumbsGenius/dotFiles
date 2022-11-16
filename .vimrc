@@ -111,18 +111,19 @@ set shortmess+=c
 "
 " coc_disable_startup_warning like 'use vimversion >= 8.2 blabla~~'
 let g:coc_disable_startup_warning = 1
-" using ctrl+n to auto completion
-inoremap <expr> <TAB>
-		\ coc#pum#visible() ? coc#pum#next(1) :
-		\ CheckBackSpace() ? "\<TAB>" :
-		\ coc#refresh()
-
-inoremap <expr> <S-TAB>
-		\ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" using TAB to auto completion
+" I gonna just use <C-n>
+"inoremap <expr> <TAB>
+"		\ coc#pum#visible() ? coc#pum#next(1) :
+"		\ CheckBackSpace() ? "\<TAB>" :
+"		\ coc#refresh()
+"
+"inoremap <expr> <S-TAB>
+"		\ coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to formats
 " <C-g>u breaks current undo, please make your own chice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#comfirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 							\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " make <Backspace> key delete delemeter and throw out that was been making
