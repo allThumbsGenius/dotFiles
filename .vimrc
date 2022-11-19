@@ -39,6 +39,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,6 +85,9 @@ set cursorline
 set visualbell
 
 set hlsearch
+
+colorscheme jellybeans
+
 "
 " Some servers have isuues with backup files, see #649
 set nobackup
@@ -160,12 +164,10 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-colorscheme jellybeans
-
 " Compile key : Compile and if success execute
 " C++ compile + execute
-autocmd FileType cpp nnoremap <buffer> <f9> :w<CR>:!g++ -o %< % && ./%<<CR>
+autocmd FileType cpp nnoremap <buffer> <f9> :w<CR>:!echo --------------------------------------------------------<CR>:!g++ -o %< % && ./%<<CR>
 " C compile + execute
-autocmd FileType c nnoremap <buffer> <f9> :w<CR>:!gcc -o %< % && ./%<<CR>
+autocmd FileType c nnoremap <buffer> <f9> :w<CR>:!echo --------------------------------------------------------<CR>:!gcc -o %< % && ./%<<CR>
 " Rust compile + excute
-autocmd FileType rust nnoremap <buffer> <f9> :w<CR>:!rustc % && ./%<<CR>
+autocmd FileType rust nnoremap <buffer> <f9> :w<CR>:!echo --------------------------------------------------------<CR>:!rustc % && ./%<<CR>
